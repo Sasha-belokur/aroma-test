@@ -1,18 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { createStackNavigator } from "react-navigation";
 
-import MenuScreen from './src/screens/MenuScreen';
-import MenuSectionScreen from './src/screens/MenuSectionScreen';
-
+import MenuScreen from "./src/screens/MenuScreen";
+import MenuSectionScreen from "./src/screens/MenuSectionScreen";
 
 const RootStack = createStackNavigator(
   {
     Menu: MenuScreen,
-    MenuSection: MenuSectionScreen 
+    MenuSection: MenuSectionScreen
   },
   {
-    initialRouteName: 'Menu'
+    initialRouteName: "Menu",
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "#533019"
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold"
+      }
+    }
   }
 );
 

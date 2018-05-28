@@ -10,7 +10,7 @@ import {
 
 export default class MenuItem extends Component {
   render() {
-    const { image, title, index, onPress } = this.props;
+    const { image, title, price, description, onPress } = this.props;
     const colors = ["#F26F21", "#00B8F0", "#533019"];
     const backgroundColor = colors[index % colors.length];
     const isEven = index % 2 === 0;
@@ -24,6 +24,9 @@ export default class MenuItem extends Component {
           </View>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>{title}</Text>
+          </View>
+          <View>
+            <Text>s</Text>
           </View>
         </View>
       </TouchableWithoutFeedback>

@@ -6,17 +6,26 @@ import MenuSectionItem from "../components/MenuSectionItem";
 import menuSectionData from "../assets/menuSectionData";
 
 class MenuSectionScreen extends Component {
-  static navigationOptions = {
-    title: "Меню секшн"
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam("title", "Категория товаров")
+    };
   };
 
   render() {
+    const { navigation } = this.props;
+    const id = navigation.getParam("id", 1);
+    const selectedSection = menuSectionData[id];
+
     return (
       <ScrollView style={styles.container}>
-        {menuSectionData.map(item => (
-        <MenuSectionItem
-          image={item.image}
-        />
+        {selectedSection.map((item, index) => (
+          <MenuSectionItem
+            key={item.id}
+            borderTop={index !== 0}
+            uri={item.image}
+            title={item.title}
+          />
         ))}
       </ScrollView>
     );
@@ -27,7 +36,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginHorizontal: 25,
-    marginVertical: 10
+    marginVertical: 10,
+    backgroundColor: "#00B8F1"
   }
 });
 

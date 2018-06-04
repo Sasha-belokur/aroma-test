@@ -12,10 +12,10 @@ class MenuScreen extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView bounces={false} style={styles.container}>
         {menuData.map((item, index) => (
           <MenuItem
-            onPress={this.props.navigation.navigate}
+            navigate={this.props.navigation.navigate}
             id={item.id}
             key={item.id}
             uri={item.image}

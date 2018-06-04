@@ -11,14 +11,10 @@ import {
 export default class MenuItem extends Component {
   render() {
     const { image, title, price, description, onPress } = this.props;
-    const colors = ["#F26F21", "#00B8F0", "#533019"];
-    const backgroundColor = colors[index % colors.length];
-    const isEven = index % 2 === 0;
-    const flexDirection = isEven ? "row" : "row-reverse";
 
     return (
       <TouchableWithoutFeedback onPress={onPress}>
-        <View style={[styles.menuItem, { backgroundColor, flexDirection }]}>
+        <View style={styles.menuItem}>
           <View>
             <Image source={image} style={styles.image} />
           </View>

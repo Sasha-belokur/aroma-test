@@ -10,15 +10,16 @@ import {
 
 export default class MenuItem extends Component {
   render() {
-    const { image, title, index, onPress } = this.props;
-    const colors = ["#F26F21", "#00B8F0", "#533019"];
-    const backgroundColor = colors[index % colors.length];
+    const { uri, title, index, onPress, backgroundColor } = this.props;
     const isEven = index % 2 === 0;
     const flexDirection = isEven ? "row" : "row-reverse";
-
+    const image = {
+      uri: 'http://web.aromakava.ua:30082/' + uri
+    };
+    // ()=> onPress('MenuSection', {})
     return (
-      <TouchableWithoutFeedback onPress={onPress}>
-        <View style={[styles.menuItem, { backgroundColor, flexDirection }]}>
+      <TouchableWithoutFeedback onPress={() => Alert.alert('test')}>
+        <View style={[styles.menuItem, { flexDirection, backgroundColor }]}>
           <View>
             <Image source={image} style={styles.image} />
           </View>
@@ -42,7 +43,8 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     justifyContent: "center",
-    padding: 10
+    padding: 10,
+    width: 160
   },
   title: {
     fontSize: 20,

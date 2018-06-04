@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, Text, StyleSheet, Alert, Button } from "react-native";
 
-// import Menu from '../components/MenuSection';
+import MenuSectionItem from "../components/MenuSectionItem";
+
+import menuSectionData from "../assets/menuSectionData";
 
 class MenuSectionScreen extends Component {
   static navigationOptions = {
@@ -9,8 +11,24 @@ class MenuSectionScreen extends Component {
   };
 
   render() {
-    return <Text>Menu Section!</Text>;
+    return (
+      <ScrollView style={styles.container}>
+        {menuSectionData.map(item => (
+        <MenuSectionItem
+          image={item.image}
+        />
+        ))}
+      </ScrollView>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginHorizontal: 25,
+    marginVertical: 10
+  }
+});
 
 export default MenuSectionScreen;

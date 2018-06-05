@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { ScrollView, Text, StyleSheet, Alert, Button, View } from "react-native";
+import {
+  ScrollView,
+  Text,
+  StyleSheet,
+  Alert,
+  Button,
+  View
+} from "react-native";
 
 import MenuSectionItem from "../components/MenuSectionItem";
 
@@ -21,18 +28,24 @@ class MenuSectionScreen extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.menuSection}>
           {selectedSection.map((item, index) => {
-            const price = item.cost_small || item.cost_medium || item.cost_large;
+            const price =
+              item.cost_small || item.cost_medium || item.cost_large;
             return (
-            <MenuSectionItem
-              key={item.id}
-              isFirst={index === 0}
-              uri={item.image}
-              title={item.title}
-              price={price}
-              navigate={navigation.navigate}
-              pricesArray={[item.cost_small, item.cost_medium, item.cost_large]}
-            />
-          )
+              <MenuSectionItem
+                key={item.id}
+                isFirst={index === 0}
+                uri={item.image}
+                title={item.title}
+                price={price}
+                navigate={navigation.navigate}
+                pricesArray={[
+                  item.cost_small,
+                  item.cost_medium,
+                  item.cost_large
+                ]}
+                description={item.description}
+              />
+            );
           })}
         </View>
       </ScrollView>

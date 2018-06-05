@@ -9,26 +9,30 @@ import {
 } from "react-native";
 
 export default class MenuSectionItem extends Component {
+  menuSectionItemPressHandler = () => {
+    const { navigate, description, title, price, uri } = this.props;
+
+    navigate("MenuSectionItem", { description, title, price, uri });
+  };
+
   render() {
-    const { uri, title, price, description, isFirst } = this.props;
+    const { uri, title, price, isFirst } = this.props;
     const borderTop = isFirst ? undefined : styles.borderTop;
     const image = {
       uri: "http://web.aromakava.ua:30082/" + uri
     };
 
-    menuSectionItemPressHandler = () => {
-      
-    }
-
     return (
-      <TouchableWithoutFeedback onPress={this.menuItemPressHandler}>
+      <TouchableWithoutFeedback onPress={this.menuSectionItemPressHandler}>
         <View style={styles.menuItem}>
           <View style={styles.imageContainer}>
             <Image source={image} style={styles.image} />
           </View>
           <View style={[styles.titleContainer, borderTop]}>
-            <Text adjustsFontSizeToFit={true} style={styles.title}>{title}</Text>
-            <Text style={styles.price}>{price + '₴'}</Text>
+            <Text adjustsFontSizeToFit={true} style={styles.title}>
+              {title}
+            </Text>
+            <Text style={styles.price}>{price + "₴"}</Text>
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 15,
@@ -68,12 +72,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     color: "#000000",
-    fontWeight: 'bold',
+    fontWeight: "bold",
     flex: 1
-  }, 
+  },
   price: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "#f26f21",
-    fontSize: 22,
+    fontSize: 22
   }
 });

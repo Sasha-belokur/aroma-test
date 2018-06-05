@@ -10,10 +10,10 @@ const RootStack = createStackNavigator(
   {
     Menu: MenuScreen,
     MenuSection: MenuSectionScreen,
-    MenuSectionItem: MenuSectionItemScreen,
+    MenuSectionItem: MenuSectionItemScreen
   },
   {
-    initialRouteName: "MenuSectionItem",
+    initialRouteName: "Menu",
     navigationOptions: {
       headerStyle: {
         backgroundColor: "#533019"

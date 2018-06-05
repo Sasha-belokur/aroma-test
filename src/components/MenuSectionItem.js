@@ -8,21 +8,27 @@ import {
   Alert
 } from "react-native";
 
-export default class MenuItem extends Component {
+export default class MenuSectionItem extends Component {
   render() {
-    const { uri, title, price, description } = this.props;
+    const { uri, title, price, description, isFirst } = this.props;
+    const borderTop = isFirst ? undefined : styles.borderTop;
     const image = {
       uri: "http://web.aromakava.ua:30082/" + uri
     };
 
+    menuSectionItemPressHandler = () => {
+      
+    }
+
     return (
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={this.menuItemPressHandler}>
         <View style={styles.menuItem}>
           <View style={styles.imageContainer}>
             <Image source={image} style={styles.image} />
           </View>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>{title}</Text>
+          <View style={[styles.titleContainer, borderTop]}>
+            <Text adjustsFontSizeToFit={true} style={styles.title}>{title}</Text>
+            <Text style={styles.price}>{price + '₴'}</Text>
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -32,27 +38,42 @@ export default class MenuItem extends Component {
 
 const styles = StyleSheet.create({
   image: {
-    width: 100,
-    height: 80
+    width: 80,
+    height: 80,
+    resizeMode: Image.resizeMode.contain
   },
   imageContainer: {
-    width: 100,
-    height: "100%"
+    justifyContent: "center",
+    width: 80,
+    height: 80,
+    marginHorizontal: 10
   },
   menuItem: {
-    height: 80,
+    height: 90,
+
     justifyContent: "flex-start",
     flexDirection: "row"
   },
   titleContainer: {
-    justifyContent: "center",
-    flexGrow: 1,
-    padding: 10,
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 15,
+    flex: 1
+  },
+  borderTop: {
     borderTopColor: "#ccc",
     borderTopWidth: 1
   },
   title: {
-    fontSize: 20,
-    color: "#ffffff"
+    fontSize: 15,
+    color: "#000000",
+    fontWeight: 'bold',
+    flex: 1
+  }, 
+  price: {
+    fontWeight: 'bold',
+    color: "#f26f21",
+    fontSize: 22,
   }
 });

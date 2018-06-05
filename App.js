@@ -4,14 +4,16 @@ import { createStackNavigator } from "react-navigation";
 
 import MenuScreen from "./src/screens/MenuScreen";
 import MenuSectionScreen from "./src/screens/MenuSectionScreen";
+import MenuSectionItemScreen from "./src/screens/MenuSectionItemScreen";
 
 const RootStack = createStackNavigator(
   {
     Menu: MenuScreen,
-    MenuSection: MenuSectionScreen
+    MenuSection: MenuSectionScreen,
+    MenuSectionItem: MenuSectionItemScreen,
   },
   {
-    initialRouteName: "Menu",
+    initialRouteName: "MenuSectionItem",
     navigationOptions: {
       headerStyle: {
         backgroundColor: "#533019"

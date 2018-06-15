@@ -19,9 +19,9 @@ export default class MenuSectionItem extends Component {
     const { uri, title, price, isFirst } = this.props;
     const borderTop = isFirst ? undefined : styles.borderTop;
     const image = {
-      uri: "http://web.aromakava.ua:30082/" + uri
+      uri: "http://web.aromakava.ua:30082" + uri
     };
-
+    
     return (
       <TouchableWithoutFeedback onPress={this.menuSectionItemPressHandler}>
         <View style={styles.menuItem}>
@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   image: {
     width: 80,
     height: 80,
-    resizeMode: Image.resizeMode.contain
   },
   imageContainer: {
     justifyContent: "center",
